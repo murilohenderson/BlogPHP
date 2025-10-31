@@ -1,0 +1,234 @@
+/* --- Configurações Globais e Corpo --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa; 
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Cabeçalho e Navegação --- */
+.site-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 2rem;
+}
+
+.site-header-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5rem;
+}
+
+.site-header-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.site-header-nav a:hover {
+    color: #000;
+}
+
+/* --- Conteúdo Principal --- */
+.conteudo-principal {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* --- Botão "Criar Postagem" --- */
+#criar-postagem {
+    display: block;
+    margin: 0 auto 2rem auto;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    background-color: #ffffff; 
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#criar-postagem:hover {
+    background-color: #fdfdfd;
+    border-color: #bbb;
+    transform: translateY(-1px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* --- Seção do Formulário (com Animação) --- */
+#formulario {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0 2rem; 
+    max-width: 700px;
+    margin: 2rem auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+    /* Animação */
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease-out, padding 0.5s ease-out, visibility 0.5s;
+}
+
+#formulario.formulario-visible {
+    max-height: 1000px; 
+    opacity: 1;
+    visibility: visible;
+    padding: 2rem 2rem; 
+    transition: max-height 0.5s ease-in, opacity 0.3s ease-in 0.1s, padding 0.5s ease-in;
+}
+
+
+#formulario h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+#formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#formulario label {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: -0.5rem;
+}
+
+#formulario input[type="text"],
+#formulario textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #fdfdfd;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#formulario input[type="text"]:focus,
+#formulario textarea:focus {
+    outline: none;
+    border-color: #a0a0a0;
+    box-shadow: 0 0 0 2px rgba(100, 100, 100, 0.1);
+}
+
+#formulario input[type="submit"] {
+    padding: 0.85rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    
+    background-color: #7fbc8c; 
+    color: white;
+}
+
+#formulario input[type="submit"]:hover {
+    background-color: #6daa7b; 
+}
+
+/* --- Listagem de Postagens --- */
+.listagem {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+.postagem {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.postagem h2 {
+    margin-top: 0;
+    color: #222;
+}
+
+.postagem p {
+    color: #444;
+    margin: 1rem 0;
+}
+
+.postagem small {
+    display: block;
+    color: #777;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* --- Ações (Editar / Excluir) --- */
+#acoes {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0; 
+}
+
+#acoes a {
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+/* Link Editar - Azul pastel suave */
+#acoes a[href*="idUpdate"] {
+    color: #31708f;
+    background-color: #f4f8fa;
+    border-color: #bce8f1;
+}
+#acoes a[href*="idUpdate"]:hover {
+    background-color: #e6f1f5;
+    border-color: #a6d9e8;
+}
+
+/* Link Excluir - Vermelho pastel suave */
+#acoes a[href*="idDelete"] {
+    color: #a94442;
+    background-color: #fdf7f7;
+    border-color: #f5c6cb;
+}
+#acoes a[href*="idDelete"]:hover {
+    background-color: #fbeeee;
+    border-color: #f1b0b7;
+}
+
+
+/* --- Rodapé --- */
+.site-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    color: #888;
+    font-size: 0.9rem;
+    border-top: 1px solid #e0e0e0;
+    background-color: #fdfdfd;
+}
