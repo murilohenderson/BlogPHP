@@ -3,7 +3,7 @@
 
     // Conexão ao banco de dados
     try {
-        $p = new Post("dbblog", "127.0.0.1", "root", "root");
+        $p = new Post("dbblog", "127.0.0.1", "root", "");
     } catch (PDOException $e) {
         die("Erro ao conectar ao banco de dados: " . $e->getMessage());
     }
@@ -85,8 +85,6 @@
         <nav class="site-header-nav">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -131,6 +129,7 @@
                         echo "<small>Publicado em: " . date('d/m/Y H:i:s', strtotime($postagem['data_publicacao'])) . "</small>";
                         echo "<div id='acoes'>";
                         echo "<a href='index.php?idUpdate=" . $postagem['id'] . "' class='btn-editar'>Editar</a>";
+
                         // Adiciona uma confirmação em JS para excluir
                         echo "<a href='index.php?idDelete=" . $postagem['id'] . "' class='btn-excluir' onclick='return confirm(\"Tem certeza que deseja excluir esta postagem?\")'>Excluir</a>";
                         echo "</div> ";
