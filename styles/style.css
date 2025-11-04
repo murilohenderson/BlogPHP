@@ -1,4 +1,3 @@
-/* Adicionado: Estilos Globais e Reset Básico */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 * {
@@ -19,7 +18,7 @@ a {
     text-decoration: none;
 }
 
-/* Adicionado: Estilos básicos para o layout */
+/* Layout geral */
 .site-header {
     background-color: #fff;
     padding: 1rem 2rem;
@@ -45,7 +44,7 @@ a {
     border-top: 1px solid #eee;
 }
 
-/* Adicionado: Estilos para o formulário */
+/* Formulário */
 #criar-postagem {
     background-color: #007bff;
     color: white;
@@ -107,7 +106,7 @@ a {
     font-weight: bold;
 }
 
-/* Adicionado: Estilos para a listagem de posts */
+/* Listagem de posts */
 .listagem .postagem {
     background-color: #fff;
     padding: 1.5rem 2rem;
@@ -136,7 +135,7 @@ a {
 
 #acoes {
     display: flex;
-    gap: 0.5rem; /* Espaço entre os botões */
+    gap: 0.5rem; 
     margin-top: 1rem;
 }
 
@@ -156,9 +155,9 @@ a {
     background-color: #dc3545;
 }
 
-/* Adicionado: Estilos para o Modal (Janela) */
+/* Estilos do Modal (Janela) */
 
-/* Classe para o post clicável */
+/* Classe pro post clicável */
 .postagem-clicavel {
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -171,26 +170,25 @@ a {
 }
 
 
-/* O fundo escuro e borrado - ESCONDIDO */
-/* Esta é a classe que está no seu index.php */
+/* Fundo escuro e borrado */
 .modal-overlay-hidden {
-    display: none; /* É ISSO QUE ESCONDE O MODAL */
+    display: none; /* ESCONDE O MODAL */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px); /* Efeito de blur que você pediu */
+    backdrop-filter: blur(5px); /* Efeito de embaçamento */
     z-index: 1000;
     justify-content: center;
     align-items: center;
 }
 
-/* O fundo escuro e borrado - VISÍVEL */
-/* O JS troca para esta classe quando você clica */
+/* Fundo escuro e borrado */
+/* Troca pra essa classe quando é clicado */
 .modal-overlay-visible {
-    display: flex; /* É ISSO QUE MOSTRA O MODAL */
+    display: flex; /* MOSTRA O MODAL */
     position: fixed;
     top: 0;
     left: 0;
@@ -201,7 +199,7 @@ a {
     z-index: 1000;
     justify-content: center;
     align-items: center;
-    padding: 1rem; /* Espaçamento para telas pequenas */
+    padding: 1rem; /* Espaçamento pra telas pequenas */
 }
 
 /* A janela de conteúdo do modal */
@@ -209,10 +207,10 @@ a {
     background-color: #fff;
     padding: 2rem;
     border-radius: 8px;
-    max-width: 800px; /* Largura máxima da janela */
-    width: 90%; /* Responsivo */
-    max-height: 90vh; /* Altura máxima, vh = % da altura da tela */
-    overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo for longo */
+    max-width: 800px; 
+    width: 90%; 
+    max-height: 90vh;
+    overflow-y: auto; /* Barra de rolagem se  conteúdo for longo */
     position: relative;
     box-shadow: 0 5px 25px rgba(0,0,0,0.3);
 }
