@@ -1,6 +1,6 @@
 <h1 align="center">Blog </h1>
 <p align="center">
-<p>Sistema de </p>
+<p>Sistema de blog criado</p>
 
 # ✔️ Técnicas e tecnologias usadas
 - ``Visual Studio Code``
@@ -9,6 +9,7 @@
 - ``PHP``
 - ``JavaScript``
 - ``Orientação ao Objeto``
+- ``MySQL``
 
 
 

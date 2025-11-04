@@ -78,7 +78,10 @@
 
 <body>
     <?php if (!empty($mensagem_erro)): ?>
-        <script>alert('<?php echo htmlspecialchars($mensagem_erro); ?>');</script>
+        <div class="mensagem-erro" id="mensagem-erro">
+            <?php echo htmlspecialchars($mensagem_erro); ?>
+            <button onclick="document.getElementById('mensagem-erro').style.display='none'">&times;</button>
+        </div>
     <?php endif; ?>
 
     <header class="site-header">
@@ -122,15 +125,20 @@
                 $postagens = $p->buscarPostagens();
                 if (count($postagens) > 0) {
                     foreach ($postagens as $postagem) {
-                        echo "<article class='postagem'>";
+                        
+                        echo "<article class='postagem postagem-clicavel' 
+                                     data-titulo='" . htmlspecialchars($postagem['titulo']) . "' 
+                                     data-conteudo='" . htmlspecialchars($postagem['conteudo']) . "'
+                                     data-data='" . date('d/m/Y H:i:s', strtotime($postagem['data_publicacao'])) . "'
+                                >";     
                         echo "<h2>" . htmlspecialchars($postagem['titulo']) . "</h2>";
                         echo "<p class='descricao'>" . htmlspecialchars($postagem['descricao']) . "</p>";
-                        echo "<p>" . htmlspecialchars(substr($postagem['conteudo'], 0, 200)) . "...</p>";
+                        echo "<p>" . htmlspecialchars(substr($postagem['conteudo'], 0, 200)) . "...</p>"; 
                         echo "<small>Publicado em: " . date('d/m/Y H:i:s', strtotime($postagem['data_publicacao'])) . "</small>";
                         echo "<div id='acoes'>";
                         echo "<a href='index.php?idUpdate=" . $postagem['id'] . "' class='btn-editar'>Editar</a>";
 
-                        // Adiciona uma confirmação em JS para excluir
+                        // Confirmação em JS para excluir
                         echo "<a href='index.php?idDelete=" . $postagem['id'] . "' class='btn-excluir' onclick='return confirm(\"Tem certeza que deseja excluir esta postagem?\")'>Excluir</a>";
                         echo "</div> ";
                         echo "</article>";
@@ -141,6 +149,18 @@
             ?>
         </section>
     </main>
+
+    <!-- Estrutura do Modal (Janela) -->
+    <div id="modal-overlay" class="modal-overlay-hidden">
+        <div id="modal-conteudo">
+            <button id="modal-fechar" class="modal-fechar">&times;</button>
+            <h2 id="modal-titulo"></h2>
+            <small id="modal-data"></small>
+            <p id="modal-texto"></p>
+        </div>
+    </div>
+    <!-- Fim -->
+
 
     <footer class="site-footer">
         <p>Blog &copy; <?php echo date('Y'); ?></p>
