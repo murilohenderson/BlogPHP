@@ -16,7 +16,7 @@
 Aqui está uma visão geral de como a aplicação funciona.
 
 ### Visão Geral
-![Print da tela inicial do blog, mostrando a lista de postagens](assets/tela-principal.png)
+![Print da tela inicial do blog, mostrando a lista de postagens](assets/Tela-principal.png)
 
 ### Modal de Leitura
 O usuário pode clicar em um post para abri-lo em um modal.
